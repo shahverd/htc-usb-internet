@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Run this as super user before connecting your HTC to your computer
 
 # To enable ip_forwarding
@@ -33,9 +33,14 @@ while :; do
 	#done
 	# To write the hex number to port 6000 of phone
 	#echo -n -e "\x00\x02\x00\x00" | nc $phoneip 6000 > /dev/null
-	echo -n -e "\x00\x02\x00\x00" | nc $phoneip 6000 
-	echo $phoneip
-	sleep 15
+	if [ "$phoneip" != "" ];then
+		echo $phoneip
+		echo -n -e "\x00\x02\x00\x00" | nc $phoneip 6000 
+		sleep 15
+	else
+		echo "Couldn't find the phone ip"
+		sleep 1
+	fi
 
 	#while [ "$phoneip" != "" ]; do
 		#sleep 15
