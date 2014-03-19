@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run this as super user before connecting your HTC to your computer
+# Run this as super user after connecting your HTC to your computer
 
 # To enable ip_forwarding
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
