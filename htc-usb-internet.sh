@@ -35,7 +35,8 @@ while :; do
 	#echo -n -e "\x00\x02\x00\x00" | nc $phoneip 6000 > /dev/null
 	if [ "$phoneip" != "" ];then
 		echo $phoneip
-		echo -n -e "\x00\x02\x00\x00" | nc $phoneip 6000 
+		#echo -n -e "\x00\x02\x00\x00" | nc $phoneip 6000 
+        (echo -n -e "\x00\x02\x00\x00" > /dev/tcp/$phoneip/6000) #do it in more unix way
 		sleep 15
 	else
 		echo "Couldn't find the phone ip"
